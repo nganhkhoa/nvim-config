@@ -13,6 +13,27 @@
 (noremap :n :j :gj)
 (noremap :n :k :gk)
 
+(noremap :t :<esc> :<C-\><C-n>)
+(noremap :t :jj :<esc>)
+
+(nvim.set_keymap
+  "n"
+  "<leader>s"
+  ":mksession!<CR>"
+  {:noremap true :silent true})
+
+(nvim.set_keymap
+  "n"
+  "[<Space>"
+  ":call append(line('.') - 1, repeat([''], v:count1))<CR>"
+  {:noremap true :silent true})
+
+(nvim.set_keymap
+  "n"
+  "]<Space>"
+  ":call append(line('.'), repeat([''], v:count1))<CR>"
+  {:noremap true :silent true})
+
 (set nvim.o.tabstop 2)
 (set nvim.bo.tabstop 2)
 
