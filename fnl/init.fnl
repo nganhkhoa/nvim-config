@@ -46,6 +46,12 @@
 (set nvim.o.expandtab true)
 (set nvim.bo.expandtab true)
 
+(set nvim.o.breakindent true)
+(set nvim.wo.breakindent true)
+
+(set nvim.o.linebreak true)
+(set nvim.wo.linebreak true)
+
 (set nvim.o.number true)
 (set nvim.wo.number true)
 

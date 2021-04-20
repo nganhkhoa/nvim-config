@@ -48,10 +48,12 @@ packer.startup(function(use)
   use 'kana/vim-operator-user'
   use 'rhysd/vim-operator-surround'
   use 'chaoren/vim-wordmotion'
+  use 'b3nj5m1n/kommentary'
 
   use 'nelstrom/vim-visual-star-search'
 
   use 'wakatime/vim-wakatime'
 
   use 'sheerun/vim-polyglot'
+  use 'rescript-lang/vim-rescript'
 end)

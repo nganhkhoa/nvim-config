@@ -1,0 +1,6 @@
+lc.log
+
+lua/*.lua
+!lua/plugins.lua
+
+plugin/
