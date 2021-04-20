@@ -56,4 +56,10 @@ packer.startup(function(use)
 
   use 'sheerun/vim-polyglot'
   use 'rescript-lang/vim-rescript'
+
+  use {
+    'autozimu/LanguageClient-neovim',
+    branch = 'next',
+    run = 'bash install.sh'
+  }
 end)
