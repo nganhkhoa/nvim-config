@@ -4,6 +4,9 @@ packer.startup(function(use)
   use 'wbthomason/packer.nvim'
   use 'Olical/aniseed'
 
+  -- themes
+  use 'axvr/photon.vim'
+
   use {
     'hoob3rt/lualine.nvim',
     requires = {'kyazdani42/nvim-web-devicons', opt = true},

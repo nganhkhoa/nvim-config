@@ -1,5 +1,6 @@
 (module user.config
-  {require {nvim aniseed.nvim}})
+  {require {nvim aniseed.nvim
+            nu aniseed.nvim.util}})
 
 (defn- noremap [mode from to]
   "Sets a mapping with {:noremap true}."
@@ -57,5 +58,11 @@
 
 (set nvim.o.relativenumber true)
 (set nvim.wo.relativenumber true)
+
+(set nvim.o.signcolumn "yes")
+(set nvim.wo.signcolumn "yes")
+
+(set nvim.o.termguicolors true)
+(nvim.command "colorscheme photon")
 
 (require "settings")
