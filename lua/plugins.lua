@@ -1,5 +1,11 @@
 local packer = require('packer')
 
+packer.init({
+  git = {
+    clone_timeout = 120, -- Timeout, in seconds, for git clones
+  }
+})
+
 packer.startup(function(use)
   use 'wbthomason/packer.nvim'
   use 'Olical/aniseed'
@@ -39,6 +45,7 @@ packer.startup(function(use)
     end
   }
 
+  use 'junegunn/goyo.vim'
   use 'Yggdroot/indentLine'
   use 'ntpeters/vim-better-whitespace'
   use 'valloric/matchtagalways'
@@ -59,6 +66,7 @@ packer.startup(function(use)
 
   use 'sheerun/vim-polyglot'
   use 'rescript-lang/vim-rescript'
+  use 'otherjoel/vim-pollen'
 
   use {
     'autozimu/LanguageClient-neovim',
