@@ -14,6 +14,11 @@ au! BufRead,BufNewFile,BufWritePost *.ptree set filetype=pollen
 
 require('plugins')
 
-require('kommentary.config').configure_language("default", {
+kommentary = require('kommentary.config')
+
+kommentary.configure_language("default", {
+    prefer_single_line_comments = true,
+})
+kommentary.configure_language("objcpp", {
     prefer_single_line_comments = true,
 })

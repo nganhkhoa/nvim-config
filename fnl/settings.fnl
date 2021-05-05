@@ -21,7 +21,7 @@
 (nvim.set_keymap "" :sr "<Plug>(operator-surround-replace)" {:silent true})
 
 ;; language-client neovim
-(set nvim.g.LanguageClient_loggingFile "/Users/lap12003/.config/nvim/lc.log")
+;; (set nvim.g.LanguageClient_loggingFile "~/.config/nvim/lc.log")
 (set nvim.g.LanguageClient_serverCommands
      {:c ["ccls"]
       :cpp ["ccls"]
@@ -30,6 +30,7 @@
       :go ["gopls"]
       :rust ["rls"]})
 
+(nvim.command "set completefunc=LanguageClient#complete")
 (nvim.set_keymap "" :gd "<Plug>(lcn-definition)" {:silent true})
 (nvim.set_keymap "" :gh "<Plug>(lcn-hover)" {:silent true})
 (nvim.set_keymap "" :gr "<Plug>(lcn-references)" {:silent true})

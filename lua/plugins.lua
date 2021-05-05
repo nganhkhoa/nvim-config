@@ -64,7 +64,7 @@ packer.startup(function(use)
 
   use 'wakatime/vim-wakatime'
 
-  use 'sheerun/vim-polyglot'
+  -- use 'sheerun/vim-polyglot'
   use 'rescript-lang/vim-rescript'
   use 'otherjoel/vim-pollen'
 
@@ -72,5 +72,10 @@ packer.startup(function(use)
     'autozimu/LanguageClient-neovim',
     branch = 'next',
     run = 'bash install.sh'
+  }
+
+  use {
+    'kkoomen/vim-doge',
+    run = ':call doge#install()'
   }
 end)
