@@ -2,6 +2,10 @@
   {require {nvim aniseed.nvim
             nu aniseed.nvim.util}})
 
+;; theme
+(global github-theme (require :github-theme))
+(github-theme.setup {:themeStyle :dark})
+
 ;; buffergator
 (set nvim.g.buffergator_display_regime "parentdir")
 
@@ -20,17 +24,42 @@
 (nvim.set_keymap "" :sd "<Plug>(operator-surround-delete)" {:silent true})
 (nvim.set_keymap "" :sr "<Plug>(operator-surround-replace)" {:silent true})
 
-;; language-client neovim
-;; (set nvim.g.LanguageClient_loggingFile "~/.config/nvim/lc.log")
-(set nvim.g.LanguageClient_serverCommands
-     {:c ["ccls"]
-      :cpp ["ccls"]
-      :objc ["ccls"]
-      :objcpp ["ccls"]
-      :go ["gopls"]
-      :rust ["rls"]})
+;; pollen
+(vim.cmd "
+  au! BufRead,BufNewFile,BufWritePost *.pm set filetype=pollen
+  au! BufRead,BufNewFile,BufWritePost *.pp set filetype=pollen
+  au! BufRead,BufNewFile,BufWritePost *.ptree set filetype=pollen
 
-(nvim.command "set completefunc=LanguageClient#complete")
-(nvim.set_keymap "" :gd "<Plug>(lcn-definition)" {:silent true})
-(nvim.set_keymap "" :gh "<Plug>(lcn-hover)" {:silent true})
-(nvim.set_keymap "" :gr "<Plug>(lcn-references)" {:silent true})
+  \" Suggested editor settings:
+  \" autocmd FileType pollen setlocal wrap      \" Soft wrap (don't affect buffer)
+  \" autocmd FileType pollen setlocal linebreak \" Wrap on word-breaks only
+")
+
+;; kommentary
+(global kommentary (require :kommentary.config))
+(kommentary.configure_language :default {:prefer_single_line_comments true})
+(kommentary.configure_language :objcpp {:prefer_single_line_comments true})
+
+;; lualine
+(global lualine (require :lualine))
+(lualine.setup
+  {:options {:theme :nightfly
+             :section_separators ["" ""]
+             :component_separators ["" ""]
+             :icons_enabled true}
+  :sections {:lualine_a {1 {1 :mode
+                            :upper true}}
+             :lualine_b {1 {1 :branch
+                            :icon ""}}
+             :lualine_c {1 {1 :filename
+                            :file_status true}}
+             :lualine_x ["encoding" "fileformat" "filetype"]
+             :lualine_y ["progress"]
+             :lualine_z ["location"]}
+  :inactive_sections {:lualine_a {}
+                      :lualine_b {}
+                      :lualine_c ["filename"]
+                      :lualine_x ["location"]
+                      :lualine_y {}
+                      :lualine_z {}}
+  :extensions ["fugitive"]})

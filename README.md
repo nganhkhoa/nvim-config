@@ -1,14 +1,29 @@
 Welcome to my **neovim** config folder
 
-Through out the years (4 years) of using Neovim, I have came up with a very large neovim configuration. But now I drop most of them. Neovim support for Lua script is on the way, this rewrite will be all (most of) in Lua. I prefer the LISP syntax over Lua syntax, so I use Fennel with aniseed.
+Through out the years (4 years) of using Neovim, I have came up with a very large neovim configuration. But now I drop most of them. This rewrite will be all in Lua. I prefer the S-expression syntax over Lua syntax, so I use Fennel with aniseed.
 
-There will be a lightline configuration, everyone loves a nice UI.
+Now that neovim has 0.5 released, I changed the config to use its LSP and some nightly tree-sitter.
 
-I mostly code in C, C++, Python, Golang, Javascript, Java, Kotlin, Rust, Haskell (ordered by my own usage frequency).
+## Code environment
 
+- C/C++/ObjC/ObjC++
+- Python 3
+- Golang
+- Rust
+- Scala
+- Javascript (NodeJS, Deno)
+
+- Java/Kotlin
+- Haskell
+- Ocaml with Coq
 
 ## Change log
 
+Newest on top
+
+- Change to github theme
+- Change plugins to fennel
+- Remove language client Neovim
 - Initialize the Git Repo
 - Switch from pure VimL to Lua using Fennel+aniseed
 - Switch from vim-plug to packer.nvim
