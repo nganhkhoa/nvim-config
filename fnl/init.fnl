@@ -1,6 +1,5 @@
 (module user.config
-  {require {nvim aniseed.nvim
-            nu aniseed.nvim.util}})
+  {require {nvim aniseed.nvim}})
 
 (defn- noremap [mode from to]
   "Sets a mapping with {:noremap true}."
@@ -66,3 +65,4 @@
 
 (require "plugins")
 (require "settings")
+(require "lsp")

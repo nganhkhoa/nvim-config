@@ -28,6 +28,10 @@
   (use :b3nj5m1n/kommentary)
   (use :nelstrom/vim-visual-star-search)
 
+  (use {1 :nvim-treesitter/nvim-treesitter :run ":TSUpdate"})
+  (use :hrsh7th/nvim-compe)
+  (use :neovim/nvim-lspconfig)
+
   ; others
   (use :wakatime/vim-wakatime)
   ; (use :rescript-lang/vim-rescript)
