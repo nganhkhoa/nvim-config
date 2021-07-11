@@ -30,6 +30,6 @@
 
   ; others
   (use :wakatime/vim-wakatime)
-  (use :rescript-lang/vim-rescript)
+  ; (use :rescript-lang/vim-rescript)
   (use :otherjoel/vim-pollen)
   (use {1 :kkoomen/vim-doge :run ":call doge#install()"})))

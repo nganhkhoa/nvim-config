@@ -63,7 +63,6 @@
 (set nvim.wo.signcolumn "yes")
 
 (set nvim.o.termguicolors true)
-; (nvim.command "colorscheme photon")
 
 (require "plugins")
 (require "settings")
