@@ -7,14 +7,13 @@
   (use :Olical/aniseed) ; fennel to lua
 
   ; themes
-  (use :axvr/photon.vim)
   (use :projekt0n/github-nvim-theme)
 
   ; ui
   (use {1 :hoob3rt/lualine.nvim
         :requires {1 :kyazdani42/nvim-web-devicons :opt true}})
   (use :junegunn/goyo.vim)
-  (use :Yggdroot/indentLine)
+  (use :lukas-reineke/indent-blankline.nvim)
   (use :ntpeters/vim-better-whitespace)
   (use :valloric/matchtagalways)
 
@@ -34,6 +33,4 @@
 
   ; others
   (use :wakatime/vim-wakatime)
-  ; (use :rescript-lang/vim-rescript)
-  (use :otherjoel/vim-pollen)
   (use {1 :kkoomen/vim-doge :run ":call doge#install()"})))

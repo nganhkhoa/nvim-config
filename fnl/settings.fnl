@@ -24,17 +24,6 @@
 (nvim.set_keymap "" :sd "<Plug>(operator-surround-delete)" {:silent true})
 (nvim.set_keymap "" :sr "<Plug>(operator-surround-replace)" {:silent true})
 
-;; pollen
-(vim.cmd "
-  au! BufRead,BufNewFile,BufWritePost *.pm set filetype=pollen
-  au! BufRead,BufNewFile,BufWritePost *.pp set filetype=pollen
-  au! BufRead,BufNewFile,BufWritePost *.ptree set filetype=pollen
-
-  \" Suggested editor settings:
-  \" autocmd FileType pollen setlocal wrap      \" Soft wrap (don't affect buffer)
-  \" autocmd FileType pollen setlocal linebreak \" Wrap on word-breaks only
-")
-
 ;; kommentary
 (global kommentary (require :kommentary.config))
 (kommentary.configure_language :default {:prefer_single_line_comments true})
