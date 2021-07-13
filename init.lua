@@ -26,7 +26,7 @@ if fn.empty(fn.glob(fn.stdpath('data')..'/site/pack/packer/start/')) > 0 then
 
 else
 
--- call directly from lua, skipping aniseed init
-require('aniseed.env').init({compile = true})
+-- call through aniseed
+vim.g['aniseed#env'] = true
 
 end
