@@ -21,6 +21,10 @@ Now that neovim has 0.5 released, I changed the config to use its LSP and some n
 
 Newest on top
 
+- Remove pollen
+- Replace identLine with indent_blankline
+- Setup bootstrap from scratch install
+- Setup lsp, treesitter
 - Change to github theme
 - Change plugins to fennel
 - Remove language client Neovim
