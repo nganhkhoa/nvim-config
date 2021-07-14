@@ -13,6 +13,7 @@
 (lspconfig.rust_analyzer.setup {})
 (lspconfig.gopls.setup {})
 (lspconfig.denols.setup {})
+(lspconfig.ccls.setup {})
 
 (treesitter.setup {:ensure_installed ["c" "cpp" "python" "go" "rust" "javascript" "lua"]
                    :highlight {:enable true}
