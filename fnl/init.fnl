@@ -63,6 +63,11 @@
 
 (set nvim.o.termguicolors true)
 
+; neovide
+(set nvim.g.neovide_fullscreen true)
+(set nvim.g.neovide_cursor_vfx_mode "pixiedust")
+(set nvim.o.guifont "FiraCode Nerd Font Mono:h20")
+
 (require "plugins")
 (require "settings")
 (require "lsp")
