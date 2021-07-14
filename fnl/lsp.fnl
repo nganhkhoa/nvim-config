@@ -13,7 +13,13 @@
 (lspconfig.rust_analyzer.setup {})
 (lspconfig.gopls.setup {})
 (lspconfig.denols.setup {})
-(lspconfig.ccls.setup {})
+(lspconfig.ccls.setup
+  {:init_options {:clang {:extraArgs ["-I/usr/local/include"
+                                      "-I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1"
+                                      "-I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/12.0.0/include"
+                                      "-I/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include"
+                                      "-I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"
+                                      "-I/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks"]}}})
 
 (treesitter.setup {:ensure_installed ["c" "cpp" "python" "go" "rust" "javascript" "lua"]
                    :highlight {:enable true}
