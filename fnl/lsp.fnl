@@ -23,6 +23,12 @@
 
 (treesitter.setup {:ensure_installed ["c" "cpp" "python" "go" "rust" "javascript" "lua"]
                    :highlight {:enable true}
-                   :indent {:enable true}})
+                   :indent {:enable true}
+                   :textobjects {:select {:enable true
+                                          :keymaps {:ia "@parameter.inner"
+                                                    :oa "@parameter.outer"}}
+                                 :swap {:enable true
+                                        :swap_next {:<S-l> "@parameter.inner"}
+                                        :swap_previous {:<S-h> "@parameter.inner"}}}})
 
 (set nvim.o.completeopt "menuone,noselect")

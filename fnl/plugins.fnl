@@ -28,6 +28,7 @@
   (use :nelstrom/vim-visual-star-search)
 
   (use {1 :nvim-treesitter/nvim-treesitter :run ":TSUpdate"})
+  (use :nvim-treesitter/nvim-treesitter-textobjects)
   (use :hrsh7th/nvim-compe)
   (use :neovim/nvim-lspconfig)
 
