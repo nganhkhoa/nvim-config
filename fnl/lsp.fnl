@@ -13,6 +13,7 @@
 (lspconfig.rust_analyzer.setup {})
 (lspconfig.gopls.setup {})
 (lspconfig.denols.setup {})
+(lspconfig.sourcekit.setup {})
 (lspconfig.ccls.setup
   {:init_options {:clang {:extraArgs ["-I/usr/local/include"
                                       "-I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1"
