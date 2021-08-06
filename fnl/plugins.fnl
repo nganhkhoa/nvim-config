@@ -10,15 +10,16 @@
   (use :projekt0n/github-nvim-theme)
 
   ; ui
-  (use {1 :hoob3rt/lualine.nvim
-        :requires {1 :kyazdani42/nvim-web-devicons :opt true}})
+  (use :kyazdani42/nvim-web-devicons)
+  (use :hoob3rt/lualine.nvim)
   (use :junegunn/goyo.vim)
   (use :lukas-reineke/indent-blankline.nvim)
   (use :ntpeters/vim-better-whitespace)
   (use :valloric/matchtagalways)
 
   ; util
-  (use :cocopon/vaffle.vim)
+  ; (use :cocopon/vaffle.vim)
+  (use :kyazdani42/nvim-tree.lua)
   (use :jeetsukumaran/vim-buffergator)
   (use :tpope/vim-fugitive)
   (use :kana/vim-operator-user)
