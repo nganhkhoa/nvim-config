@@ -4,7 +4,7 @@
 
 ;; theme
 (global github-theme (require :github-theme))
-(github-theme.setup {:themeStyle :dark})
+(github-theme.setup {:theme_style :dark})
 
 ;; buffergator
 (set nvim.g.buffergator_display_regime "parentdir")
