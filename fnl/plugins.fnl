@@ -18,8 +18,7 @@
   (use :valloric/matchtagalways)
 
   ; util
-  ; (use :cocopon/vaffle.vim)
-  (use :kyazdani42/nvim-tree.lua)
+  (use :cocopon/vaffle.vim)
   (use :jeetsukumaran/vim-buffergator)
   (use :tpope/vim-fugitive)
   (use :kana/vim-operator-user)

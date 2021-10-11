@@ -10,7 +10,14 @@
 (set nvim.g.buffergator_display_regime "parentdir")
 
 ;; nvim tree
-(nvim.set_keymap :n :<leader>dd ":NvimTreeFindFile<CR>" {:noremap true :silent true})
+(defn open-vaffle []
+  (let [bufname (nvim.fn.bufname "%")]
+    (if (= bufname "")
+      (nvim.fn.vaffle#init)
+      (nvim.fn.vaffle#init (nvim.fn.expand "%:p")))))
+
+(nu.fn-bridge :OpenVaffle :user.plugin.settings :open-vaffle)
+(nvim.set_keymap :n :<leader>dd ":call OpenVaffle()<CR>" {:noremap true :silent true})
 
 ;; vim-operator-surround
 (nvim.set_keymap "" :sa "<Plug>(operator-surround-append)" {:silent true})
