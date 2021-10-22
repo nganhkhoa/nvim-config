@@ -11,7 +11,7 @@
 
   ; ui
   (use :kyazdani42/nvim-web-devicons)
-  (use :hoob3rt/lualine.nvim)
+  (use :nvim-lualine/lualine.nvim)
   (use :junegunn/goyo.vim)
   (use :lukas-reineke/indent-blankline.nvim)
   (use :ntpeters/vim-better-whitespace)
