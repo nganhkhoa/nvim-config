@@ -24,6 +24,12 @@
 (nvim.set_keymap "" :sd "<Plug>(operator-surround-delete)" {:silent true})
 (nvim.set_keymap "" :sr "<Plug>(operator-surround-replace)" {:silent true})
 
+;; surround.nvim
+(global surround (require :surround))
+(surround.setup
+  {:mappings_style "sandwich"
+   })
+
 ;; kommentary
 (global kommentary (require :kommentary.config))
 (kommentary.configure_language :default {:prefer_single_line_comments true})
