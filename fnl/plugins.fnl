@@ -12,7 +12,6 @@
   ; ui
   (use :kyazdani42/nvim-web-devicons)
   (use :nvim-lualine/lualine.nvim)
-  (use :junegunn/goyo.vim)
   (use :lukas-reineke/indent-blankline.nvim)
   (use :ntpeters/vim-better-whitespace)
   (use :valloric/matchtagalways)
@@ -22,13 +21,11 @@
   (use :jeetsukumaran/vim-buffergator)
   (use :tpope/vim-fugitive)
   (use :blackCauldron7/surround.nvim)
-  (use :chaoren/vim-wordmotion)
   (use :b3nj5m1n/kommentary)
   (use :nelstrom/vim-visual-star-search)
 
   (use {1 :nvim-treesitter/nvim-treesitter :run ":TSUpdate"})
   (use :nvim-treesitter/nvim-treesitter-textobjects)
-  (use :hrsh7th/nvim-compe)
   (use :neovim/nvim-lspconfig)
 
   ; others
