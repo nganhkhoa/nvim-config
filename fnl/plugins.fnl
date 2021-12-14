@@ -28,6 +28,13 @@
   (use :nvim-treesitter/nvim-treesitter-textobjects)
   (use :neovim/nvim-lspconfig)
 
+  ; completion
+  (use :hrsh7th/nvim-cmp)
+  (use :hrsh7th/cmp-nvim-lua)
+  (use :hrsh7th/cmp-nvim-lsp)
+  (use :hrsh7th/cmp-buffer)
+  (use :hrsh7th/cmp-path)
+
   ; others
   (use :wakatime/vim-wakatime)
   (use {1 :kkoomen/vim-doge :run ":call doge#install()"})))

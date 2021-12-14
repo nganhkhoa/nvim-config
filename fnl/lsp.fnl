@@ -1,8 +1,9 @@
 (module user.lsp
   {require {nvim aniseed.nvim}})
 
-(global lspconfig (require :lspconfig))
-(global treesitter (require :nvim-treesitter.configs))
+(local lspconfig (require :lspconfig))
+(local treesitter (require :nvim-treesitter.configs))
+(local cmp (require :cmp))
 
 (nvim.set_keymap "" :gd "<cmd>lua vim.lsp.buf.definition()<CR>" {:silent true :noremap true})
 (nvim.set_keymap "" :gh "<cmd>lua vim.lsp.buf.hover()<CR>" {:silent true :noremap true})
@@ -33,4 +34,29 @@
                                         :swap_next {:<S-l> "@parameter.inner"}
                                         :swap_previous {:<S-h> "@parameter.inner"}}}})
 
-(set nvim.o.completeopt "menuone,noselect")
+;; completion
+(set nvim.o.completeopt "menu,menuone,noselect")
+
+(def- cmp-src-menu-items
+  {:buffer "buffer"
+   :nvim_lsp "lsp"
+   :path "path"})
+
+(def- cmp-srcs
+  [{:name :nvim_lsp}
+   {:name :path}
+   {:name :buffer}])
+
+(cmp.setup {:formatting
+            {:format (fn [entry item]
+                       (set item.menu (or (. cmp-src-menu-items entry.source.name) ""))
+                       item)}
+            :mapping {:<S-k> (cmp.mapping.select_prev_item)
+                      :<S-j> (cmp.mapping.select_next_item)
+                      ; :<C-b> (cmp.mapping.scroll_docs (- 4))
+                      ; :<C-f> (cmp.mapping.scroll_docs 4)
+                      ; :<C-Space> (cmp.mapping.complete)
+                      ; :<C-e> (cmp.mapping.close)
+                      :<CR> (cmp.mapping.confirm {:behavior cmp.ConfirmBehavior.Insert
+                                                  :select true})}
+            :sources cmp-srcs})
