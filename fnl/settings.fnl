@@ -9,7 +9,7 @@
 ;; buffergator
 (set nvim.g.buffergator_display_regime "parentdir")
 
-;; nvim tree
+;; Vaffle
 (defn open-vaffle []
   (let [bufname (nvim.fn.bufname "%")]
     (if (= bufname "")
@@ -18,11 +18,6 @@
 
 (nu.fn-bridge :OpenVaffle :user.plugin.settings :open-vaffle)
 (nvim.set_keymap :n :<leader>dd ":call OpenVaffle()<CR>" {:noremap true :silent true})
-
-;; vim-operator-surround
-(nvim.set_keymap "" :sa "<Plug>(operator-surround-append)" {:silent true})
-(nvim.set_keymap "" :sd "<Plug>(operator-surround-delete)" {:silent true})
-(nvim.set_keymap "" :sr "<Plug>(operator-surround-replace)" {:silent true})
 
 ;; surround.nvim
 (global surround (require :surround))
