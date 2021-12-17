@@ -2,7 +2,8 @@
   {require {nvim aniseed.nvim}})
 
 (local lspconfig (require :lspconfig))
-(local treesitter (require :nvim-treesitter.configs))
+(local treesitter_configs (require :nvim-treesitter.configs))
+(local treesitter_install (require :nvim-treesitter.install))
 (local cmp (require :cmp))
 
 (nvim.set_keymap "" :gd "<cmd>lua vim.lsp.buf.definition()<CR>" {:silent true :noremap true})
@@ -14,17 +15,10 @@
 
 (lspconfig.rust_analyzer.setup {})
 (lspconfig.gopls.setup {})
-(lspconfig.denols.setup {})
-; (lspconfig.sourcekit.setup {})
-; (lspconfig.ccls.setup
-;   {:init_options {:clang {:extraArgs ["-I/usr/local/include"
-;                                       "-I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1"
-;                                       "-I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/12.0.0/include"
-;                                       "-I/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include"
-;                                       "-I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"
-;                                       "-I/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks"]}}})
 
-(treesitter.setup {:ensure_installed ["c" "cpp" "python" "go" "rust" "javascript" "lua"]
+; treesitter
+(set treesitter_install.compilers ["clang"])
+(treesitter_configs.setup {:ensure_installed ["c" "cpp" "python" "go" "rust" "javascript" "typescript" "lua"]
                    :highlight {:enable true}
                    :indent {:enable true}
                    :textobjects {:select {:enable true
