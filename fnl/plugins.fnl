@@ -20,7 +20,7 @@
   (use :cocopon/vaffle.vim)
   (use :jeetsukumaran/vim-buffergator)
   (use :tpope/vim-fugitive)
-  (use :blackCauldron7/surround.nvim)
+  (use :ur4ltz/surround.nvim)
   (use :b3nj5m1n/kommentary)
   (use :nelstrom/vim-visual-star-search)
 
