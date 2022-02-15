@@ -8,6 +8,7 @@
 
   ; themes
   (use :projekt0n/github-nvim-theme)
+  (use :FrenzyExists/aquarium-vim)
 
   ; ui
   (use :kyazdani42/nvim-web-devicons)

@@ -3,8 +3,9 @@
             nu aniseed.nvim.util}})
 
 ;; theme
-(global github-theme (require :github-theme))
-(github-theme.setup {:theme_style :dark})
+; (global github-theme (require :github-theme))
+; (github-theme.setup {:theme_style :dark})
+(nvim.command "colorscheme aquarium")
 
 ;; buffergator
 (set nvim.g.buffergator_display_regime "parentdir")
@@ -33,7 +34,7 @@
 ;; lualine
 (global lualine (require :lualine))
 (lualine.setup
-  {:options {:theme :nightfly
+  {:options {:theme :aquarium
              :section_separators ["" ""]
              :component_separators ["" ""]
              :icons_enabled true}
