@@ -20,6 +20,11 @@
 (nu.fn-bridge :OpenVaffle :user.plugin.settings :open-vaffle)
 (nvim.set_keymap :n :<leader>dd ":call OpenVaffle()<CR>" {:noremap true :silent true})
 
+;; fzf
+
+(nvim.set_keymap :n :<leader>ff ":lua require('fzf-lua').live_grep()<CR>" {:noremap true :silent true})
+
+
 ;; surround.nvim
 (global surround (require :surround))
 (surround.setup

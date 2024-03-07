@@ -36,6 +36,8 @@
   (use :hrsh7th/cmp-buffer)
   (use :hrsh7th/cmp-path)
 
+  (use :ibhagwan/fzf-lua)
+
   ; others
   (use :wakatime/vim-wakatime)
   (use {1 :kkoomen/vim-doge :run ":call doge#install()"})))
