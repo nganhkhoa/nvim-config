@@ -15,6 +15,9 @@
 
 (lspconfig.rust_analyzer.setup {})
 (lspconfig.gopls.setup {})
+(lspconfig.hls.setup {
+                      :cmd ["haskell-language-server-wrapper" "--lsp" "--logfile" "/home/r00t/.cache/nvim/hls.log" "--debug"]
+                      })
 
 ; treesitter
 (set treesitter_install.compilers ["clang"])
