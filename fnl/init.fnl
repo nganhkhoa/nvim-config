@@ -65,7 +65,7 @@
 
 ; neovide
 ; (set nvim.g.neovide_fullscreen true)
-(set nvim.g.neovide_cursor_vfx_mode "pixiedust")
+(set nvim.g.neovide_cursor_vfx_mode "railgun")
 (set nvim.o.guifont "FiraCode Nerd Font Mono:h16")
 
 (require "plugins")
