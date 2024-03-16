@@ -24,6 +24,7 @@
   (use :ur4ltz/surround.nvim)
   (use :b3nj5m1n/kommentary)
   (use :nelstrom/vim-visual-star-search)
+  (use :timakro/vim-yadi)
 
   (use {1 :nvim-treesitter/nvim-treesitter :run ":TSUpdate"})
   (use :nvim-treesitter/nvim-treesitter-textobjects)

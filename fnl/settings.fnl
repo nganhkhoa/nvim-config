@@ -2,6 +2,8 @@
   {require {nvim aniseed.nvim
             nu aniseed.nvim.util}})
 
+(nvim.ex.autocmd "BufRead * DetectIndent")
+
 ;; theme
 ; (global github-theme (require :github-theme))
 ; (github-theme.setup {:theme_style :dark})
@@ -49,7 +51,7 @@
                             :icon ""}}
              :lualine_c {1 {1 :filename
                             :file_status true}}
-             :lualine_x ["encoding" "fileformat" "filetype"]
+             :lualine_x ["%{&expandtab?shiftwidth().\"sp\":\"tabs\"}" "encoding" "fileformat" "filetype"]
              :lualine_y ["progress"]
              :lualine_z ["location"]}
   :inactive_sections {:lualine_a {}
