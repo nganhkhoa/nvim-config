@@ -5,9 +5,7 @@
 (nvim.ex.autocmd "BufRead * DetectIndent")
 
 ;; theme
-; (global github-theme (require :github-theme))
-; (github-theme.setup {:theme_style :dark})
-(nvim.command "colorscheme aquarium")
+(nvim.command "silent! colorscheme aquarium")
 
 ;; buffergator
 (set nvim.g.buffergator_display_regime "parentdir")

@@ -7,15 +7,18 @@
   (use :Olical/aniseed) ; fennel to lua
 
   ; themes
-  (use :projekt0n/github-nvim-theme)
-  (use :FrenzyExists/aquarium-vim)
+  ; (use :projekt0n/github-nvim-theme)
+  (use {
+    1 :FrenzyExists/aquarium-vim
+    :run ":silent! colorscheme aquarium"
+  })
 
   ; ui
   (use :kyazdani42/nvim-web-devicons)
   (use :nvim-lualine/lualine.nvim)
   (use :lukas-reineke/indent-blankline.nvim)
   (use :ntpeters/vim-better-whitespace)
-  (use :valloric/matchtagalways)
+  ; (use :valloric/matchtagalways)
 
   ; util
   (use :cocopon/vaffle.vim)
@@ -26,8 +29,15 @@
   (use :nelstrom/vim-visual-star-search)
   (use :timakro/vim-yadi)
 
-  (use {1 :nvim-treesitter/nvim-treesitter :run ":TSUpdate"})
-  (use :nvim-treesitter/nvim-treesitter-textobjects)
+  (use {
+    1 :nvim-treesitter/nvim-treesitter
+    :run (fn [] (let [ts (require :nvim-treesitter.install)]
+      (ts.update {:with_sync true})))
+  })
+  (use {
+    1 :nvim-treesitter/nvim-treesitter-textobjects
+    :after "nvim-treesitter"
+  })
   (use :neovim/nvim-lspconfig)
 
   ; completion
