@@ -63,6 +63,8 @@
 
 (set nvim.o.termguicolors true)
 
+(set nvim.o.list true)
+
 ; neovide
 ; (set nvim.g.neovide_fullscreen true)
 (set nvim.g.neovide_cursor_vfx_mode "railgun")
