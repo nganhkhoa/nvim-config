@@ -1,7 +1,6 @@
 (module user.lsp
   {require {nvim aniseed.nvim}})
 
-(local lspconfig (require :lspconfig))
 (import-macros {:autocmds autocmds} :aniseed.macros.autocmds)
 
 (local treesitter (require :nvim-treesitter))
@@ -16,11 +15,15 @@
 (nvim.set_keymap "" :gs "<cmd>lua vim.lsp.buf.signature_help()<CR>" {:silent true :noremap true})
 (nvim.set_keymap "" :<leader>e "<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>" {:silent true :noremap true})
 
-(lspconfig.rust_analyzer.setup {})
-(lspconfig.gopls.setup {})
-(lspconfig.hls.setup {
-                      :cmd ["haskell-language-server-wrapper" "--lsp" "--logfile" "/home/r00t/.cache/nvim/hls.log" "--debug"]
-                      })
+(vim.lsp.config "rust_analyzer" {})
+(vim.lsp.config "gopls" {})
+; (vim.lsp.config "hls"
+;                 {:cmd ["haskell-language-server-wrapper"
+;                        "--lsp"
+;                        "--logfile"
+;                        "/home/r00t/.cache/nvim/hls.log"
+;                        "--debug"]})
+(vim.lsp.enable "racket_langserver")
 
 ; treesitter
 (local treesitter_languages ["c" "cpp" "python" "go" "rust" "javascript" "typescript" "lua" "fennel" "haskell" "racket"])
