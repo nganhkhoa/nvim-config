@@ -2,9 +2,10 @@
   {require {nvim aniseed.nvim}})
 
 (local lspconfig (require :lspconfig))
-(local treesitter_configs (require :nvim-treesitter.configs))
-(local treesitter_install (require :nvim-treesitter.install))
 (local cmp (require :cmp))
+(import-macros {:autocmds autocmds} :aniseed.macros.autocmds)
+
+(local treesitter (require :nvim-treesitter))
 
 (nvim.set_keymap "" :gd "<cmd>lua vim.lsp.buf.definition()<CR>" {:silent true :noremap true})
 (nvim.set_keymap "" :gh "<cmd>lua vim.lsp.buf.hover()<CR>" {:silent true :noremap true})
@@ -20,16 +21,14 @@
                       })
 
 ; treesitter
-(set treesitter_install.compilers ["clang"])
-(treesitter_configs.setup {:ensure_installed ["c" "cpp" "python" "go" "rust" "javascript" "typescript" "lua"]
-                   :highlight {:enable true}
-                   :indent {:enable true}
-                   :textobjects {:select {:enable true
-                                          :keymaps {:ia "@parameter.inner"
-                                                    :oa "@parameter.outer"}}
-                                 :swap {:enable true
-                                        :swap_next {:<S-l> "@parameter.inner"}
-                                        :swap_previous {:<S-h> "@parameter.inner"}}}})
+(local treesitter_languages ["c" "cpp" "python" "go" "rust" "javascript" "typescript" "lua" "fennel" "haskell" "racket"])
+(treesitter.install treesitter_languages)
+
+(autocmds
+  ["FileType"
+   {:pattern treesitter_languages
+    :callback (fn [event] (vim.treesitter.start))}
+  ])
 
 ;; completion
 (set nvim.o.completeopt "menu,menuone,noselect")
