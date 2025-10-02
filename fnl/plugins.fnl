@@ -6,6 +6,8 @@
   (use :wbthomason/packer.nvim)
   (use :Olical/aniseed) ; fennel to lua
 
+  ; (use :nvim-lua/plenary.nvim)
+
   ; themes
   ; (use :projekt0n/github-nvim-theme)
   (use {
@@ -31,13 +33,15 @@
 
   (use {
     1 :nvim-treesitter/nvim-treesitter
+    :branch "main"
     :run (fn [] (let [ts (require :nvim-treesitter.install)]
       (ts.update {:with_sync true})))
   })
-  (use {
-    1 :nvim-treesitter/nvim-treesitter-textobjects
-    :after "nvim-treesitter"
-  })
+  ; (use {
+  ;   1 :nvim-treesitter/nvim-treesitter-textobjects
+  ;   :branch "main"
+  ;   :after "nvim-treesitter"
+  ; })
   (use :neovim/nvim-lspconfig)
 
   ; completion
@@ -46,6 +50,7 @@
   (use :hrsh7th/cmp-nvim-lsp)
   (use :hrsh7th/cmp-buffer)
   (use :hrsh7th/cmp-path)
+  ; (use :tzachar/cmp-ai)
 
   (use :ibhagwan/fzf-lua)
 
