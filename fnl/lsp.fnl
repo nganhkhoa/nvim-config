@@ -15,8 +15,8 @@
 (nvim.set_keymap "" :gs "<cmd>lua vim.lsp.buf.signature_help()<CR>" {:silent true :noremap true})
 (nvim.set_keymap "" :<leader>e "<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>" {:silent true :noremap true})
 
-(vim.lsp.config "rust_analyzer" {})
-(vim.lsp.config "gopls" {})
+(vim.lsp.enable "rust_analyzer" {})
+(vim.lsp.enable "gopls" {})
 ; (vim.lsp.config "hls"
 ;                 {:cmd ["haskell-language-server-wrapper"
 ;                        "--lsp"
