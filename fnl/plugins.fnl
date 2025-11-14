@@ -9,7 +9,6 @@
   (use :nvim-lua/plenary.nvim)
 
   ; themes
-  ; (use :projekt0n/github-nvim-theme)
   (use {
     1 :FrenzyExists/aquarium-vim
     :run ":silent! colorscheme aquarium"
@@ -20,7 +19,6 @@
   (use :nvim-lualine/lualine.nvim)
   (use :lukas-reineke/indent-blankline.nvim)
   (use :ntpeters/vim-better-whitespace)
-  ; (use :valloric/matchtagalways)
 
   ; util
   (use :nganhkhoa/portal.nvim)
