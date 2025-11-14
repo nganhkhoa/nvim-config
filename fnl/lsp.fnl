@@ -5,8 +5,8 @@
 
 (local treesitter (require :nvim-treesitter))
 
-; (local cmp (require :cmp))
-; (local cmp_ai (require :cmp_ai.config))
+(local cmp (require :cmp))
+(local minuet (require :minuet))
 
 (nvim.set_keymap "" :gd "<cmd>lua vim.lsp.buf.definition()<CR>" {:silent true :noremap true})
 (nvim.set_keymap "" :gh "<cmd>lua vim.lsp.buf.hover()<CR>" {:silent true :noremap true})
@@ -35,6 +35,13 @@
     :callback (fn [event] (vim.treesitter.start))}
   ])
 
+;; minuet llm
+(minuet.setup {:provider :gemini
+               :provider_options
+                 {:gemini {:model :gemini-2.5-flash-lite
+                           :api_key :GEMINI_API_KEY}}
+               :notify :warn})
+
 ;; completion
 (set nvim.o.completeopt "menu,menuone,noselect")
 
@@ -47,45 +54,17 @@
   [{:name :nvim_lsp}
    {:name :path}
    {:name :buffer}
-   ; {:name :cmp_ai}
+   {:name :minuet}
    ])
 
-(local prompt_command
-  (fn [lines_before lines_after]
-    (.. "<|fim_prefix|>" lines_before "<|fim_suffix|>" lines_after "<|fim_middle|>")))
-
-(local raw_fetch
-  (fn [response]
-    ; (nvim.notify (vim.api.inspect response))
-    (set nvim.g.ai_raw_response response)))
-
-; (cmp_ai:setup {:max_lines 5
-;                :provider "Ollama"
-;                :provider_options {:model "qwen2.5-coder:1.5b"
-;                                   ; :auto_unload true
-;                                   :prompt prompt_command
-;                                   :raw_response_cb raw_fetch}
-;                :notify true
-;                ; :notify_callback (fn [msg] (nvim.notify msg))
-;                :run_on_every_keystroke true
-;                :log_errors true
-;                :debug true
-;                })
-
-; (cmp.setup {:formatting
-;             {:format (fn [entry item]
-;                        (set item.menu (or (. cmp-src-menu-items entry.source.name) ""))
-;                        item)}
-;             :mapping {:<S-k> (cmp.mapping.select_prev_item)
-;                       :<S-j> (cmp.mapping.select_next_item)
-;                       ; :<C-b> (cmp.mapping.scroll_docs (- 4))
-;                       ; :<C-f> (cmp.mapping.scroll_docs 4)
-;                       ; :<C-Space> (cmp.mapping.complete)
-;                       ; :<C-e> (cmp.mapping.close)
-;                       :<C-x> (cmp.mapping.complete
-;                                {:config {:sources (cmp.config.sources {:name "cmp_ai"})}}
-;                                [ "i" ]
-;                                )
-;                       :<CR> (cmp.mapping.confirm {:behavior cmp.ConfirmBehavior.Insert
-;                                                   :select true})}
-;             :sources cmp-srcs})
+(cmp.setup {:mapping {:<S-k> (cmp.mapping.select_prev_item)
+                      :<S-j> (cmp.mapping.select_next_item)
+                      ; :<C-b> (cmp.mapping.scroll_docs (- 4))
+                      ; :<C-f> (cmp.mapping.scroll_docs 4)
+                      :<C-Space> (cmp.mapping.complete)
+                      ; :<C-e> (cmp.mapping.close)
+                      ; ["<A-y>"] = require('minuet').make_cmp_map() ;; invoke manually?
+                      :<CR> (cmp.mapping.confirm {:behavior cmp.ConfirmBehavior.Insert
+                                                  :select true})}
+            :sources cmp-srcs
+            :performance {:fetching_timeout 2000}})

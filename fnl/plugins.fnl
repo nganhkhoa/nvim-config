@@ -6,7 +6,7 @@
   (use :wbthomason/packer.nvim)
   (use :Olical/aniseed) ; fennel to lua
 
-  ; (use :nvim-lua/plenary.nvim)
+  (use :nvim-lua/plenary.nvim)
 
   ; themes
   ; (use :projekt0n/github-nvim-theme)
@@ -50,7 +50,7 @@
   (use :hrsh7th/cmp-nvim-lsp)
   (use :hrsh7th/cmp-buffer)
   (use :hrsh7th/cmp-path)
-  ; (use :tzachar/cmp-ai)
+  (use :milanglacier/minuet-ai.nvim)
 
   (use :ibhagwan/fzf-lua)
 
