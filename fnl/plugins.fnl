@@ -23,8 +23,7 @@
   ; (use :valloric/matchtagalways)
 
   ; util
-  (use :cocopon/vaffle.vim)
-  (use :jeetsukumaran/vim-buffergator)
+  (use :nganhkhoa/portal.nvim)
   (use :tpope/vim-fugitive)
   (use :ur4ltz/surround.nvim)
   (use :b3nj5m1n/kommentary)

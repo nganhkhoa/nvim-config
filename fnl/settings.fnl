@@ -7,18 +7,8 @@
 ;; theme
 (nvim.command "silent! colorscheme aquarium")
 
-;; buffergator
-(set nvim.g.buffergator_display_regime "parentdir")
-
-;; Vaffle
-(defn open-vaffle []
-  (let [bufname (nvim.fn.bufname "%")]
-    (if (= bufname "")
-      (nvim.fn.vaffle#init)
-      (nvim.fn.vaffle#init (nvim.fn.expand "%:p")))))
-
-(nu.fn-bridge :OpenVaffle :user.plugin.settings :open-vaffle)
-(nvim.set_keymap :n :<leader>dd ":call OpenVaffle()<CR>" {:noremap true :silent true})
+(nvim.set_keymap :n :<leader>dd ":lua require('portal.file_browser').open()<CR>" {:noremap true :silent true})
+(nvim.set_keymap :n :<leader>b ":lua require('portal.buffer_browser').open()<CR>" {:noremap true :silent true})
 
 ;; fzf
 
