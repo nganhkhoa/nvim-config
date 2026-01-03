@@ -30,6 +30,30 @@
 (local treesitter_languages ["c" "cpp" "python" "go" "rust" "javascript" "typescript" "lua" "fennel" "haskell" "racket"])
 (treesitter.install treesitter_languages)
 
+; symbols shortcut
+;; Define your symbols in a clean association list
+(local type-symbols
+  {"\\Gamma" "Γ"
+   "\\Delta" "Δ"
+   "\\lambda" "λ"
+   "\\alpha" "α"
+   "\\beta" "β"
+   "\\tau" "τ"
+   "\\|-" "⊢"
+   "\\==" "≡"
+   "\\->" "→"
+   "\\=>" "⇒"
+   "\\Forall" "∀"
+   "\\Exists" "∃"
+   "\\bot" "⊥"
+   "\\top" "⊤"})
+
+(vim.api.nvim_create_autocmd "FileType"
+  {:pattern ["haskell" "racket" "tex" "agda" "coq"]
+   :callback (fn []
+               (each [lhs rhs (pairs type-symbols)]
+                 (vim.keymap.set "i" lhs rhs {:buffer true})))})
+
 (autocmds
   ["FileType"
    {:pattern treesitter_languages
